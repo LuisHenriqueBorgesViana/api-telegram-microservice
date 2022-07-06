@@ -1,2 +1,2 @@
 # api-telegram
-Telegram API
+Telegram Integration API Microservice
