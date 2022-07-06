@@ -2,12 +2,12 @@ package app;
 
 import java.io.IOException;
 
-import app.telegram.method.TelegramGetMethods;
-import app.telegram.method.TelegramPostMethods;
-import app.telegram.object.TelegramSendMessageObject;
-import app.telegram.object.TelegramUserObject;
-import app.telegram.type.TelegramMessageType;
-import app.telegram.type.TelegramUserType;
+import app.telegram.method.TelegramGetMethod;
+import app.telegram.method.TelegramPostMethod;
+import app.telegram.object.TelegramRequestObjectSendMessage;
+import app.telegram.object.TelegramResponseObjectSendMessage;
+import app.telegram.object.TelegramResponseObjectUser;
+import app.telegram.object.TelegramObjectUser;
 
 public class TestsApplication {
 
@@ -18,17 +18,17 @@ public class TestsApplication {
 		String tokenAcess = "5500339396:AAGdYYgduxENIAK1fTowhr64wFOdsC8VNtw";
 		
 		/** Methods **/
-		TelegramGetMethods  methodsGet  = new TelegramGetMethods();
-		TelegramPostMethods methodsPost = new TelegramPostMethods(); 
+		TelegramGetMethod  methodsGet  = new TelegramGetMethod();
+		TelegramPostMethod methodsPost = new TelegramPostMethod(); 
 		
 		/** Types **/		
-		TelegramUserType    userType    = new TelegramUserType();
-		TelegramMessageType messageType = new TelegramMessageType();
+		TelegramResponseObjectUser    userType    = new TelegramResponseObjectUser();
+		TelegramResponseObjectSendMessage messageType = new TelegramResponseObjectSendMessage();
 		
 		/*** Params ***/
 		
 		// 1. sendMessage
-		TelegramSendMessageObject sendMessageParam = new TelegramSendMessageObject();
+		TelegramRequestObjectSendMessage sendMessageParam = new TelegramRequestObjectSendMessage();
 		sendMessageParam.setChat_id("-739259266");
 		sendMessageParam.setText("Test Send Message");
       	
@@ -41,7 +41,7 @@ public class TestsApplication {
 		//System.out.println("username: " + userType.getResult().getUsername());
 		
         // 2. Endpoint [sendMessage]
-		messageType = methodsPost.sendMessage(urlApi, tokenAcess, sendMessageParam); 
-		messageType.getResult().getMessage_id();
+		//messageType = methodsPost.sendMessage(urlApi, tokenAcess, sendMessageParam); 
+		//messageType.getResult().getMessage_id();
 	}
 }
